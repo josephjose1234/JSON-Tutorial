@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple jQuery Example</title>
+  <!-- Include jQuery from a CDN -->
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <style>
+    /* Some basic styling for demonstration purposes */
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 50px;
+    }
+    button {
+      padding: 10px;
+      font-size: 16px;
+    }
+    #output {
+      margin-top: 20px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      background-color: #f2f2f2;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Simple jQuery Example</h2>
+
+  <!-- Button and Output Div -->
+  <button id="myButton">Click me!</button>
+  <div id="output">Initial Text</div>
+
+  <!-- jQuery Code -->
+  <script>
+    // jQuery code goes here
+    // jQuery code
+$(document).ready(function() {
+  // This ensures that the DOM is fully loaded before running the jQuery code
+
+  // Handle button click event
+  $("#myButton").click(function() {
+    // Change the text of the output div
+    $("#output").text("Button Clicked!");
+
+    // Animate the background color
+    $("#output").animate({ backgroundColor: "#ffd700" }, 1000); // 1000 milliseconds (1 second) duration
+  });
+});
+  </script>
+
+</body>
+</html>

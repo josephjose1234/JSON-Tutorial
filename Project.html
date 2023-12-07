@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en" style="background-color: rgb(32, 45, 54);">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON Tutorial</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+    
+        th,
+        td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+    
+        th {
+            /* background-color: #f2f2f2; */
+        }
+    
+        .appbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100px;
+            /*AdjustHere*/
+            width: 100%;
+            background-color: #f0f0f0;
+            /* padding: 20px; */
+        }
+    
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+    
+        .row {
+            display: flex;
+            justify-content: space-between;
+            /* Adjust as needed */
+            align-items: center;
+            /* Optional: align items to the center */
+            /* padding: 20px; */
+            background-color: teal;
+            height: 100px;
+        }
+    
+        .row h3 {
+            margin: 10px;
+            padding: 10px;
+    
+        }
+        
+    </style>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #007bff;
+        }
+    </style>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    
+        /* Styling properties of class TextColor */
+       .TextColor {
+           color: green;
+       }
+       /* here we use the tag itself as an Selector*/
+       h3 {
+       background-color:  rgb(17, 30, 39);
+       text-align: center;
+       color: rgba(39, 233, 14, 0.856);
+       }
+    </style>
+</head>
+
+<body style="color: white;"> 
+    <h1>JSON</h1>
+    <table id="contents">
+        <tr>
+            <td><a href="#2"style="color: green;">Why Use JSON?</a></td>
+            <td><a href="#3"style="color: green;">Syntax Rules</a></td>
+            <td><a href="#4"style="color: green;">Data</a></td>
+            <td><a href="#5"style="color: green;">Data types</a></td>
+            <td><a href="#6"style="color: green;">JSON.parse()</a></td>
+            <td><a href="#7"style="color: green;">JSON.stringify</a></td>
+        </tr>
+        <tr>
+            <td><a href="#8"style="color: green;">Storing Data</a></td>
+            <td><a href="#9"style="color: green;">Object Literals</a></td>
+            <td><a href="#10"style="color: green;">Array Literals</a></td>
+            <td><a href="#11"style="color: green;">Server</a></td>
+            <td><a href="#12"style="color: green;">JSONP</a></td>
+            <td><a href="#13"style="color: green;">PHp</a></td>
+        </tr>
+    </table>
+    <section id="1">
+        <h3>Javascript Object Notation</h3>
+        <p>JSON, which stands for JavaScript Object Notation, is a lightweight data interchange format.
+            It's easy for humans to read and write, and it's easy for machines to parse and generate.
+            JSON is a text format that is completely language-independent but uses conventions that are
+            familiar to programmers of the C family of languages, including C, C++, C#, Java, JavaScript,
+            Perl, Python, and many others.<br>
+            JSON data is represented as key-value pairs, similar to how data is represented in many
+            programming languages. It is primarily used to transmit data between a server and web
+            application, as an alternative to XML.<br>
+            JSON is commonly used for configuration files, data exchange between a server and a web
+            application, and as a data storage and communication format in web services (APIs).
+            It's simple, easy to understand, and widely supported across different programming languages.</p>
+    </section>
+    <section id="2">
+        <h3>Why Use JSON?</h3>
+        <p>The JSON format is syntactically similar to the code for creating JavaScript objects. Because of this, a
+            JavaScript program can easily convert JSON data into JavaScript objects.<br>
+            Since the format is text only, JSON data can easily be sent between computers, and used by any programming
+            language.<br>
+            JavaScript has a built in function for converting JSON strings into JavaScript objects</p>
+    </section>
+    <section id="3">
+        <h3>JSON Syntax Rules</h3>
+        <p>JSON syntax is derived from JavaScript object notation syntax:
+        </p>
+        <ul>
+            <li>Data is in name/value pairs</li>
+            <li>Data is separated by commas</li>
+            <li>Curly braces hold objects</li>
+            <li>Square brackets hold arrays</li>
+        </ul>
+    </section>
+    <section id="4">
+        <h3>JSON Data </h3>
+        <p>JSON data is written as name/value pairs.
+            A name/value pair consists of a field name (in double quotes), followed by a colon, followed by a value:</p>
+        <code>"name":"John"</code>
+        <p></p>
+    </section>
+    <section id="5">
+        <h3>JSON Datatypes</h3>
+        <p>JSON supports mainly 6 data types: </p>
+        <ul>
+            <li>String</li>
+            <li>Number</li>
+            <li>Boolean</li>
+            <li>Null</li>
+            <li>Object</li>
+            <li>Array</li>
+        </ul>
+        <p>
+            JSON values cannot be one of the following data types:
+        </p>
+        <ul>
+            <li>Function</li>
+            <li>Date</li>
+            <li>Undefined</li>
+        </ul>
+        <table>
+            <thead>
+                <tr>
+                    <th>Data Type</th>
+                    <th>Example</th>
+                    <th>Explanation</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>String</td>
+                    <td><code>"name":"Joseph"</code></td>
+                    <td>Represents text. Enclosed in double quotes.</td>
+                </tr>
+                <tr>
+                    <td>Number</td>
+                    <td><code>"age":25</code></td>
+                    <td>Represents a numerical value.</td>
+                </tr>
+                <tr>
+                    <td>Boolean</td>
+                    <td><code>"single":true</code></td>
+                    <td>Represents true or false values.</td>
+                </tr>
+                <tr>
+                    <td>Null</td>
+                    <td><code>"job":null</code></td>
+                    <td>Represents an empty value or absence of a value.</td>
+                </tr>
+                <tr>
+                    <td>Object</td>
+                    <td>
+                        <code>
+                            "ME":{"name":"Joseph", "age":25, "Github":"josephjose1234"}
+                            </code>
+                    </td>
+                    <td>Represents an unordered collection of key-value pairs. In this example, the key "middlename" has
+                        a null value.</td>
+                </tr>
+                <tr>
+                    <td>Array</td>
+                    <td><code>
+                        "Me":["Joseph", "josephjose0001@gmail.com", "josephjose1234"]
+                        </code></td>
+                    <td>Represents an ordered list of values.</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    <section id="6">
+        <h3>JSON.parse()</h3>
+        <p>A common use of JSON is to exchange data to/from a web server.<br>
+            When receiving data from a web server, the data is always a string.<br>
+            Parse the data with JSON.parse(), and the data becomes a JavaScript object.<br>
+            We can parse Strings,Arrays,Objects,Numbers,Null.🖥️</p>
+        <p id="JsonParse()"></p>
+        <script>
+            //This is the JSON String
+            const JsonString = '{"name":"Joseph",  "github":"josephjose1234","Email":"josephjose0001@gmail.com"}'
+            //changing/Parsing the String to a JavaScript Object
+            const JsonObjects = JSON.parse(JsonString);
+            document.getElementById("JsonParse()").innerHTML =
+                //Accessing properties of the JavaScript objects
+                JsonObjects.name + ", " + JsonObjects.github + "," + JsonObjects.Email;
+        </script>
+
+    </section>
+    <section id="7">
+        <h3>JSON.stringify()</h3>
+        <p>A common use of JSON is to exchange data to/from a web server.
+            When sending data to a web server, the data has to be a string.
+            Convert a JavaScript object into a string with JSON.stringify().</p>
+        <p id="JsonStringify"></p>
+
+        <script>
+            const JsonObject1 = { name: "Joseph", age: 24, github: "josephjose1234" };
+            const JsonString1 = JSON.stringify(JsonObject1);
+            document.getElementById("JsonStringify").innerHTML = JsonString1;
+        </script>
+
+    </section>
+    <section id="8">
+        <h3>Storing Data</h3>
+        <p>Storing data in the local storage in JavaScript is a common way to persist user
+            data on the client side. Local storage provides a simple key-value store that
+            can be used to store data between browser sessions.</p>
+        <div>
+            <label for="favoriteFood">Enter your Favorite foods</label>
+            <input type="text" id="favoriteFood">
+            <button onclick="saveFavorite()">Save</button>
+
+
+
+            <ul id="FavoriteList"></ul>
+
+            <script>
+                // to save favorite food to local storage
+                function saveFavorite() {
+                    const favorite = document.getElementById("favoriteFood").value;
+
+                    // Check if entered favorite is not null
+                    if (favorite !== "") {
+                        // Retrieve existing favorites from local storage or initialize an empty array
+                        const storedFavorites = JSON.parse(localStorage.getItem("storedFavorites")) || [];
+
+                        // Add the new favorite to the array
+                        storedFavorites.push(favorite);
+
+                        // Save the updated array back to local storage
+                        localStorage.setItem("storedFavorites", JSON.stringify(storedFavorites));
+
+                        // Call the function to display the stored favorites
+                        displayStoredFavorites();
+                    } else {
+                        alert("Enter your favorite food, please.");
+                    }
+                }
+
+                // Function to display the stored favorites
+                function displayStoredFavorites() {
+                    // Retrieve the stored favorites array from local storage
+                    const storedFavorites = JSON.parse(localStorage.getItem("storedFavorites")) || [];
+
+                    // Display the stored favorites in an unordered list
+                    const favoriteListElement = document.getElementById("FavoriteList");
+                    favoriteListElement.innerHTML = ""; // Clear previous entries
+
+                    storedFavorites.forEach(favorite => {//iterate over each elements in storedFavorites
+                        const listItem = document.createElement("li");//for each item creates a <li> element
+                        listItem.textContent = favorite;//assign the text content of listItem to favorite
+                        favoriteListElement.appendChild(listItem);
+                    });
+                }
+
+                // Call the displayStoredFavorites function to show any existing stored favorites when the page loads
+                displayStoredFavorites();
+            </script>
+        </div>
+    </section>
+    <section id="9">
+        <h3>JSON Object Literals</h3>
+        <p>
+            A JSON object literal is a JavaScript expression that represents a JSON object directly in code.
+            It's a concise way to define an object using JSON syntax directly within JavaScript.
+            <br>JSON object literals are surrounded by curly braces {}.
+            <br>
+            JSON object literals contains key/value pairs.
+            <br>
+            Keys and values are separated by a colon.
+            <br>
+            Keys must be strings, and values must be a valid JSON data type
+        </p>
+    </section>
+    <section id="10">
+        <h3>Json Array Literals</h3>
+        <p>Arrays in JSON are almost the same as arrays in JavaScript.<br>
+            In JSON, array values must be of type string, number, object, array, boolean or null.<br>
+            In JavaScript, array values can be all of the above, plus any other valid JavaScript expression, including
+            functions, dates, and undefined.</p>
+    </section>
+    <section id="11">
+        <h3>Json Server</h3>
+        <p>A common use of JSON is to exchange data to/from a web server.<br>
+            When receiving data from a web server, the data is always a string.<br>
+            Parse the data with JSON.parse(), and the data becomes a JavaScript object.</p>
+    </section>
+    <section id="12">
+        <h3>JSON PHP</h3>
+        <p>A common use of JSON is to read data from a web server, and display the data in a web page.<br>
+            PHP has some built-in functions to handle JSON.
+            Objects in PHP can be converted into JSON by using the PHP function json_encode():</p>
+    
+    </section>
+     <section id="13">
+        <h3>JSON P</h3>
+        <p>JSONP stands for JSON with Padding is a technique used in web development to overcome the 
+            limitations of the same-origin policy, which restricts web pages from making requests
+            to a domain different from the one that served the web page. JSONP provides a way to
+            request and receive JSON data from a different domain by exploiting the fact that <br>&lt;script &gt; tags are not subject to the same-origin policy.</p>
+    </section>
+    <section id="">
+        <h3></h3>
+        <p></p>
+    </section>
+    <!-- <section id="">
+        <h3></h3>
+        <p></p>
+    </section> -->
+
+</body>
+
+</html>
